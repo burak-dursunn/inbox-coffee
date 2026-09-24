@@ -1189,15 +1189,12 @@ select {
 
 /* Kutu boyutlarını eşitleyip yatayda tüm alanı kullanan tasarım */
 .process-steps {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   gap: 16px;
 }
 
 .process-step {
-  flex: 1;
-  min-width: 200px;
   background: rgba(255, 255, 255, .06);
   border: 1px solid rgba(200, 145, 90, .2);
   border-radius: var(--radius-md);
@@ -2385,7 +2382,14 @@ select {
   }
 
   .process-header {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .process-steps {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .contact-layout {
@@ -2507,7 +2511,16 @@ select {
     justify-content: center;
   }
 
-  /* Process steps: flex wraps automatically */
+  /* Process steps: mobilde tek sütun */
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .process-step {
+    text-align: left;
+    align-items: flex-start;
+    padding: 20px;
+  }
 
   .gallery-grid {
     grid-template-columns: 1fr;
