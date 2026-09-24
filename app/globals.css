@@ -820,6 +820,8 @@ select {
   /* Make video slightly wider */
   gap: clamp(40px, 5vw, 64px);
   align-items: start;
+  max-width: 1200px;
+  margin-inline: auto;
 }
 
 .specs-video-card {
@@ -2410,6 +2412,37 @@ select {
   .brands-slider-wrap {
     margin-top: 40px;
     padding-top: 20px;
+  }
+
+  /* ProductSection: slider + features alt alta, eşit boy */
+  .product-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .product-slider {
+    min-height: 340px;
+  }
+
+  .slide,
+  .slide img {
+    min-height: 340px;
+  }
+
+  .product-features {
+    gap: 16px;
+  }
+
+  /* SpecsSection yeni layout: alt alta + ortalı */
+  .specs-layout-new {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .specs-header {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
   }
 
   .hero__stats {
