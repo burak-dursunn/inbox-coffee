@@ -326,20 +326,21 @@ select {
 }
 
 .nav__link {
-  font-size: .9rem;
-  font-weight: 500;
-  color: var(--color-text-mid);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-brown-dark);
   transition: color var(--trans-fast);
   position: relative;
+  padding-bottom: 2px;
 }
 
 .nav__link::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: -2px;
   left: 0;
   width: 0;
-  height: 1.5px;
+  height: 2px;
   background: var(--color-gold);
   transition: width var(--trans-fast);
 }
@@ -1383,6 +1384,194 @@ select {
 @media (max-width: 480px) {
   .gallery-uniform-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ── GALLERY SLIDER ── */
+.gallery-slider-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-slider-scroll {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.gallery-slider-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-slider-slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: start;
+  cursor: pointer;
+}
+
+.gallery-slider-expand {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  background: rgba(26, 15, 10, 0.6);
+  backdrop-filter: blur(4px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.gallery-uniform-card:hover .gallery-slider-expand {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.gallery-slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-brown-dark);
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  opacity: 0;
+}
+
+.gallery-uniform-card:hover .gallery-slider-btn {
+  opacity: 1;
+}
+
+.gallery-slider-btn:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.gallery-slider-btn--left {
+  left: 8px;
+}
+.gallery-slider-btn--right {
+  right: 8px;
+}
+
+/* ── LIGHTBOX ── */
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(10, 5, 2, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.gallery-lightbox__close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  z-index: 10;
+}
+
+.gallery-lightbox__close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.gallery-lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  z-index: 10;
+}
+
+.gallery-lightbox__nav:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.gallery-lightbox__nav--prev {
+  left: 24px;
+}
+
+.gallery-lightbox__nav--next {
+  right: 24px;
+}
+
+.gallery-lightbox__content {
+  position: relative;
+  width: 90vw;
+  height: 85vh;
+  max-width: 1200px;
+}
+
+.gallery-lightbox__counter {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  background: rgba(0,0,0,0.5);
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .gallery-slider-expand {
+    opacity: 1;
+  }
+  .gallery-slider-btn {
+    opacity: 1;
+    width: 32px;
+    height: 32px;
+  }
+  .gallery-lightbox__nav {
+    display: none;
   }
 }
 
@@ -2443,7 +2632,7 @@ select {
     position: fixed;
     top: 0;
     right: 0;
-    bottom: 0;
+    height: 100dvh;
     width: 280px;
     max-width: 80vw;
     background: rgba(250, 248, 245, 0.98);

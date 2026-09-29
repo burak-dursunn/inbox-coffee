@@ -33,7 +33,7 @@ export default function Header() {
 
         <ul className={`nav__links${menuOpen ? ' open' : ''}`} id="navLinks">
           {[
-            { href: '#urun',       label: 'Ürün' },
+            { href: '#teknoloji',  label: 'Ürün' },
             { href: '#ozellikler', label: 'Özellikler' },
             { href: '#icecekler',  label: 'İçecekler' },
             { href: '#galeri',     label: 'Galeri' },
