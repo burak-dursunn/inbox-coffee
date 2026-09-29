@@ -115,7 +115,7 @@ export default function GallerySection() {
   }, [lightboxOpen, lightboxImages])
 
   return (
-    <section className="gallery-section section" id="galeri" aria-labelledby="galeri-title">
+    <section className="gallery-section section section--cream" id="galeri" aria-labelledby="galeri-title">
       <div className="container">
         <div className="gallery-top">
           <div>
@@ -169,13 +169,31 @@ export default function GallerySection() {
           )}
 
           <div className="gallery-lightbox__content" onClick={(e) => e.stopPropagation()}>
-            <Image
-              src={lightboxImages[lightboxIndex]}
-              alt={`Galeri resmi ${lightboxIndex + 1}`}
-              fill
-              style={{ objectFit: 'contain' }}
-              quality={90}
-            />
+            {lightboxImages.map((src, idx) => {
+              // Sadece aktif olanı, bir öncekini ve bir sonrakini render et
+              const isCurrent = idx === lightboxIndex
+              const isNext = idx === (lightboxIndex + 1) % lightboxImages.length
+              const isPrev = idx === (lightboxIndex - 1 + lightboxImages.length) % lightboxImages.length
+              
+              if (!isCurrent && !isNext && !isPrev) return null
+
+              return (
+                <Image
+                  key={src}
+                  src={src}
+                  alt={`Galeri resmi ${idx + 1}`}
+                  fill
+                  style={{ 
+                    objectFit: 'contain',
+                    opacity: isCurrent ? 1 : 0,
+                    pointerEvents: isCurrent ? 'auto' : 'none',
+                    transition: 'opacity 0.3s ease'
+                  }}
+                  quality={90}
+                  priority={isCurrent || isNext}
+                />
+              )
+            })}
           </div>
 
           {lightboxImages.length > 1 && (
@@ -197,6 +215,17 @@ export default function GallerySection() {
 
 function GallerySlider({ images, onOpen, priority }: { images: string[], onOpen: (index: number) => void, priority: boolean }) {
   const scrollRef = useRef<HTMLDivElement>(null)
+  const [maxIndex, setMaxIndex] = useState(1) // İlk başta 0 ve 1 (mevcut ve sonraki) render edilsin
+
+  const handleScroll = () => {
+    if (!scrollRef.current) return
+    const { scrollLeft, clientWidth } = scrollRef.current
+    const currentIndex = Math.round(scrollLeft / clientWidth)
+    // Sadece bir sonraki resmi yükle
+    if (currentIndex + 1 > maxIndex) {
+      setMaxIndex(currentIndex + 1)
+    }
+  }
 
   const scrollLeft = (e: React.MouseEvent) => {
     e.stopPropagation()
@@ -210,17 +239,19 @@ function GallerySlider({ images, onOpen, priority }: { images: string[], onOpen:
 
   return (
     <div className="gallery-slider-wrap">
-      <div className="gallery-slider-scroll" ref={scrollRef}>
+      <div className="gallery-slider-scroll" ref={scrollRef} onScroll={handleScroll}>
         {images.map((src, idx) => (
           <div key={idx} className="gallery-slider-slide" onClick={() => onOpen(idx)}>
-            <Image
-              src={src}
-              alt={`Galeri ${idx + 1}`}
-              fill
-              style={{ objectFit: 'cover', objectPosition: 'center' }}
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              priority={priority && idx === 0}
-            />
+            {idx <= maxIndex && (
+              <Image
+                src={src}
+                alt={`Galeri ${idx + 1}`}
+                fill
+                style={{ objectFit: 'cover', objectPosition: 'center' }}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                priority={priority && idx === 0}
+              />
+            )}
             <div className="gallery-slider-expand">
               <Maximize2 size={20} />
             </div>
