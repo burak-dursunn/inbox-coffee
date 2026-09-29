@@ -31,7 +31,7 @@ const bgSlides = [
 
 // Fullscreen'de gösterilecek tüm menü görselleri
 const allMenuImages = [
-  { src: '/menu/menu-1.webp', title: 'Menü 1' },
+  { src: '/menu/menu-1-v2.webp', title: 'Menü 1' },
   { src: '/menu/menu-2.webp', title: 'Menü 2' },
   { src: '/menu/menu-3.webp', title: 'Menü 3' },
   { src: '/menu/menu-4.webp', title: 'Menü 4' },
@@ -204,7 +204,7 @@ export default function BeveragesSection() {
                   fill
                   className={modalSlide === i ? 'active' : ''}
                   style={{ objectFit: 'contain' }}
-                  sizes="100vw"
+                  sizes="(max-width: 1024px) 88vw, 860px"
                   priority
                 />
               ))}

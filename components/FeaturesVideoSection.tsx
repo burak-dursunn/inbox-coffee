@@ -1,13 +1,8 @@
-const features = [
+const leftFeatures = [
   {
     emoji: '☕',
     title: 'Kaliteli Kahve, Standart Lezzet',
     desc: 'Özenle seçilmiş kahve çekirdekleri ve gelişmiş demleme sistemiyle her fincanda aynı yüksek kalite ve tutarlı lezzet.',
-  },
-  {
-    emoji: '🥤',
-    title: 'Sıcak & Soğuk İçecekler',
-    desc: 'Farklı damak zevklerine uygun sıcak ve soğuk içecek seçenekleriyle günün her anında taze içecek deneyimi.',
   },
   {
     emoji: '🌿',
@@ -15,19 +10,9 @@ const features = [
     desc: 'Çekirdek kahve, yaprak çay ve filtre kahve için ayrı demleme alanları; 5 farklı toz içecek haznesi ve 4 profesyonel şurup istasyonu.',
   },
   {
-    emoji: '❄️',
-    title: 'Gelişmiş Soğutma Sistemi',
-    desc: 'Sıcak içecekler için boyler, soğuk içecekler için chiller sistemi — ideal servis sıcaklığı her zaman sabit.',
-  },
-  {
     emoji: '🧼',
     title: 'Hijyenik & Otomatik Temizlik',
     desc: 'Hermetik kapanan sistem; UV dezenfeksiyon, sineklik koruması ve otomatik yıkama ile yüksek hijyen standartları.',
-  },
-  {
-    emoji: '📱',
-    title: 'Akıllı & Kolay Kullanım',
-    desc: 'Sezgisel arayüz ile içeceğinizi kolayca seçin; nakit veya nakitsiz ödeme imkânıyla hızlı servis.',
   },
   {
     emoji: '📊',
@@ -35,14 +20,32 @@ const features = [
     desc: 'Satışlar ve malzeme stokları gerçek zamanlı izlenir; dolum ve servis süreçleri daha verimli planlanır.',
   },
   {
-    emoji: '⚡',
-    title: 'Yüksek Kapasite',
-    desc: 'Tek dolumla 300 bardağa kadar üretim kapasitesi. Yüksek kapasiteli hazneler sık dolum ihtiyacını ortadan kaldırır.',
-  },
-  {
     emoji: '🥄',
     title: 'Her Şey Elinizin Altında',
     desc: 'Bardak, karıştırıcı, pipet, şeker ve peçete hazır. Masa ve çöp ünitesiyle eksiksiz kahve alanı.',
+  },
+]
+
+const rightFeatures = [
+  {
+    emoji: '🥤',
+    title: 'Sıcak & Soğuk İçecekler',
+    desc: 'Farklı damak zevklerine uygun sıcak ve soğuk içecek seçenekleriyle günün her anında taze içecek deneyimi.',
+  },
+  {
+    emoji: '❄️',
+    title: 'Gelişmiş Soğutma Sistemi',
+    desc: 'Sıcak içecekler için boyler, soğuk içecekler için chiller sistemi — ideal servis sıcaklığı her zaman sabit.',
+  },
+  {
+    emoji: '📱',
+    title: 'Akıllı & Kolay Kullanım',
+    desc: 'Sezgisel arayüz ile içeceğinizi kolayca seçin; nakit veya nakitsiz ödeme imkânıyla hızlı servis.',
+  },
+  {
+    emoji: '⚡',
+    title: 'Yüksek Kapasite',
+    desc: 'Tek dolumla 300 bardağa kadar üretim kapasitesi. Yüksek kapasiteli hazneler sık dolum ihtiyacını ortadan kaldırır.',
   },
 ]
 
@@ -62,15 +65,16 @@ export default function FeaturesVideoSection() {
             preload="metadata"
             aria-label="Kahve çekirdekleri düşüyor"
           >
-            <source src="/scroll-anmiaton/coffee-beans.webm" type="video/webm" />
-            <source src="/scroll-anmiaton/coffee-beans.mp4" type="video/mp4" />
+            <source src="/scroll-anmiaton/video-16-9.webm" type="video/webm" />
+            <source src="/scroll-anmiaton/video-16-9-opt.mp4" type="video/mp4" />
           </video>
           <div className="fv-video-border" />
         </div>
       </div>
 
-      {/* ── SOL: İçerik ── */}
+      {/* ── İçerik ── */}
       <div className="fv-inner">
+        {/* SOL: 5 Madde */}
         <div className="fv-content">
           <div className="fv-header">
             <span className="fv-eyebrow">Öne Çıkan Özellikler</span>
@@ -82,9 +86,24 @@ export default function FeaturesVideoSection() {
             </p>
           </div>
 
-          <ul className="fv-list" aria-label="Makine özellikleri">
-            {features.map(({ emoji, title, desc }) => (
+          <ul className="fv-list fv-list-left" aria-label="Makine özellikleri">
+            {leftFeatures.map(({ emoji, title, desc }) => (
               <li className="fv-item" key={title}>
+                <span className="fv-item__emoji" aria-hidden="true">{emoji}</span>
+                <div className="fv-item__body">
+                  <h3 className="fv-item__title">{title}</h3>
+                  <p className="fv-item__desc">{desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* SAĞ: 4 Madde */}
+        <div className="fv-content-right">
+          <ul className="fv-list fv-list-right" aria-label="Diğer özellikler">
+            {rightFeatures.map(({ emoji, title, desc }) => (
+              <li className="fv-item right-side-item" key={title}>
                 <span className="fv-item__emoji" aria-hidden="true">{emoji}</span>
                 <div className="fv-item__body">
                   <h3 className="fv-item__title">{title}</h3>

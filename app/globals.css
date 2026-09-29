@@ -2650,10 +2650,10 @@ select {
    ══════════════════════════════════════════════════════ */
 .fv-section {
   background: linear-gradient(160deg, #1a0f0a 0%, #2c1508 50%, #1a0f0a 100%);
-  padding-block: clamp(10px, 1.5vh, 20px);
+  padding-block: clamp(40px, 6vh, 64px);
   overflow: hidden;
   position: relative;
-  height: calc(100svh - var(--nav-h));
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2669,12 +2669,12 @@ select {
   z-index: 1;
 }
 
-/* ── Video: absolute, full-height, right side — sağ kenara flush, yazıların arkasına taşıyor ── */
+/* ── Video: absolute, full-height, full-width arka plan ── */
 .fv-video-col {
   position: absolute;
   top: 0;
-  right: 0;
-  width: 62%;
+  left: 0;
+  width: 100%;
   height: 100%;
   z-index: 0;
 }
@@ -2686,19 +2686,17 @@ select {
   overflow: hidden;
 }
 
-/* Gradient fade — soldan kuvvetli karartma, yazılar okunabilir kalıyor */
+/* Gradient fade — Solda çok yoğun, sağa doğru açılıyor (metin okunabilirliği için) */
 .fv-video-frame::after {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to right,
-    #1a0f0a 0%,
-    #1a0f0a 20%,
-    rgba(26, 15, 10, 0.92) 35%,
-    rgba(26, 15, 10, 0.6) 55%,
-    rgba(26, 15, 10, 0.1) 80%,
-    transparent 100%
+    rgba(26, 15, 10, 0.95) 0%,
+    rgba(26, 15, 10, 0.85) 30%,
+    rgba(26, 15, 10, 0.4) 60%,
+    rgba(26, 15, 10, 0.1) 100%
   );
   z-index: 2;
   pointer-events: none;
@@ -2712,7 +2710,7 @@ select {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center;
   display: block;
 }
 
@@ -2735,10 +2733,20 @@ select {
   max-width: var(--container-max);
   margin-inline: auto;
   padding-inline: var(--container-px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
 }
 
 .fv-content {
-  max-width: min(600px, 58%);
+  flex: 1;
+  max-width: 55%;
+}
+
+.fv-content-right {
+  flex: 1;
+  max-width: 40%;
 }
 
 .fv-header {
@@ -2792,37 +2800,45 @@ select {
   line-height: 1.55;
 }
 
-/* ── Özellikler Listesi — 2 sütun grid ── */
+/* ── Özellikler Listesi ── */
 .fv-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 0;
 }
 
 .fv-item {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   align-items: center;
-  padding: 9px 10px;
+  padding: 12px 10px;
   border-bottom: 1px solid rgba(150, 105, 51, 0.12);
   transition: background var(--trans-fast);
   border-radius: var(--radius-sm);
   margin-inline: -10px;
 }
 
-/* Sol sütunun sağına ince ayırıcı */
-.fv-item:nth-child(odd) {
-  border-right: 1px solid rgba(150, 105, 51, 0.1);
-  padding-right: 16px;
-}
-
-.fv-item:nth-child(even) {
-  padding-left: 16px;
-}
-
-/* İlk iki öğe üst kenarda çizgi */
-.fv-item:nth-child(-n+2) {
+.fv-list-left .fv-item:first-child {
   border-top: 1px solid rgba(150, 105, 51, 0.12);
+}
+
+.fv-item:hover {
+  background: rgba(150, 105, 51, 0.06);
+}
+
+/* Sağ taraftaki cam efekti görünümlü itemlar */
+.right-side-item {
+  background: rgba(26, 15, 10, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(150, 105, 51, 0.15);
+  border-radius: var(--radius-md);
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(150, 105, 51, 0.15);
+  margin-inline: 0;
+}
+
+.right-side-item:hover {
+  background: rgba(26, 15, 10, 0.6);
 }
 
 .fv-item:hover {
@@ -2850,7 +2866,7 @@ select {
 
 .fv-item__title {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: var(--color-cream);
   letter-spacing: -0.01em;
@@ -2859,8 +2875,8 @@ select {
 }
 
 .fv-item__desc {
-  font-size: 0.85rem;
-  color: rgba(253, 243, 227, 0.55);
+  font-size: 0.9rem;
+  color: rgba(253, 243, 227, 0.6);
   line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -2870,23 +2886,14 @@ select {
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
-  .fv-content {
-    max-width: 65%;
-  }
-
-  .fv-video-col {
-    width: 75%;
-  }
-
-  .fv-list {
-    grid-template-columns: 1fr 1fr;
+  .fv-content, .fv-content-right {
+    max-width: 48%;
   }
 }
 
 @media (max-width: 768px) {
   .fv-section {
     height: auto;
-    min-height: 100svh;
   }
 
   /* Mobilde video absolute, tam kaplar */
@@ -2898,40 +2905,308 @@ select {
     height: 100%;
   }
 
-  .fv-video-frame::after {
-    background: linear-gradient(
-      to bottom,
-      rgba(26, 15, 10, 0.7) 0%,
-      rgba(26, 15, 10, 0.85) 100%
-    );
+  .fv-inner {
+    flex-direction: column;
+    gap: 32px;
   }
 
-  .fv-content {
+  .fv-content, .fv-content-right {
     max-width: 100%;
   }
 
-  .fv-list {
-    grid-template-columns: 1fr;
-  }
-
-  .fv-item:nth-child(odd) {
-    border-right: none;
-    padding-right: 10px;
-  }
-
-  .fv-item:nth-child(even) {
-    padding-left: 10px;
-  }
-
-  .fv-item:nth-child(-n+2) {
-    border-top: none;
-  }
-
-  .fv-item:first-child {
-    border-top: 1px solid rgba(150, 105, 51, 0.12);
+  .fv-video-frame::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(26, 15, 10, 0.8) 0%,
+      rgba(26, 15, 10, 0.95) 100%
+    );
   }
 }
 
 
 
+/* ═══════════════════════════════════════════════════════
+   PRODUCT DEMO SECTION — Sol Video + Sağ Özellik Listesi
+   ═══════════════════════════════════════════════════════ */
 
+.pd-section {
+  background: var(--color-light);
+  padding-block: clamp(56px, 7vw, 100px);
+  overflow: hidden;
+}
+
+.pd-inner {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-px);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(40px, 5vw, 80px);
+  align-items: stretch;
+}
+
+/* ── Sol: Video ── */
+.pd-video-col {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+
+.pd-video-wrap {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(26, 15, 10, 0.2);
+  background: #0a0604;
+  /* Genişletilmiş portre format — yükseklik grid row'dan gelir */
+  aspect-ratio: 3 / 4;
+  height: 100%;
+  min-height: 400px;
+  max-height: 700px;
+}
+
+.pd-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.pd-video-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(150, 105, 51, 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(150, 105, 51, 0.04) 0%,
+    transparent 50%,
+    rgba(150, 105, 51, 0.04) 100%
+  );
+}
+
+/* ── Sağ: İçerik ── */
+.pd-content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 3vw, 40px);
+}
+
+.pd-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pd-eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  padding: 5px 12px;
+  background: rgba(150, 105, 51, 0.1);
+  border-radius: 100px;
+  width: fit-content;
+  border: 1px solid rgba(150, 105, 51, 0.2);
+}
+
+.pd-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.pd-title em {
+  font-style: italic;
+  color: var(--color-gold);
+}
+
+/* ── Feature List ── */
+.pd-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.pd-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 14px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--trans-fast), transform var(--trans-fast);
+  border-bottom: 1px solid rgba(26, 15, 10, 0.06);
+  position: relative;
+}
+
+.pd-item:first-child {
+  border-top: 1px solid rgba(26, 15, 10, 0.06);
+}
+
+.pd-item:hover {
+  background: rgba(150, 105, 51, 0.05);
+}
+
+.pd-item--active {
+  background: rgba(150, 105, 51, 0.08) !important;
+}
+
+.pd-item--active .pd-item__icon {
+  background: var(--color-gold);
+  color: white;
+}
+
+.pd-item--active .pd-item__title {
+  color: var(--color-gold);
+}
+
+.pd-item--active .pd-item__arrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--color-gold);
+}
+
+.pd-item__left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.pd-item__icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: rgba(150, 105, 51, 0.1);
+  color: var(--color-gold);
+  transition: background var(--trans-fast), color var(--trans-fast);
+}
+
+.pd-item__num {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  letter-spacing: 0.06em;
+}
+
+.pd-item__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pd-item__title {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+  transition: color var(--trans-fast);
+}
+
+.pd-item__desc {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+.pd-item__arrow {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity var(--trans-fast), transform var(--trans-fast), color var(--trans-fast);
+  align-self: center;
+}
+
+.pd-item:hover .pd-item__arrow {
+  opacity: 0.5;
+  transform: translateX(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .pd-inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    align-items: start;
+  }
+
+  .pd-video-wrap {
+    aspect-ratio: 16 / 9;
+    height: auto;
+    min-height: unset;
+    max-height: unset;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .pd-item__desc {
+    font-size: 0.82rem;
+  }
+
+  .pd-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   BACK TO TOP BUTTON
+   ═══════════════════════════════════════════════════════ */
+
+.back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-brown-dark);
+  color: var(--color-cream);
+  border: 1px solid rgba(150, 105, 51, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(26, 15, 10, 0.3);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease-smooth),
+              transform 0.3s var(--ease-smooth),
+              background 0.2s var(--ease-smooth);
+}
+
+.back-to-top--visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background: var(--color-gold);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(150, 105, 51, 0.35);
+}
+
+.back-to-top:active {
+  transform: translateY(0);
+}

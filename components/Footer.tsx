@@ -47,7 +47,7 @@ export default function Footer() {
             <div className="footer__brand">
               <Link href="/" aria-label="CoffeeVar Ana Sayfa">
                 <Image
-                  src="/images/logo.webp"
+                  src="/images/logo.svg"
                   alt="CoffeeVar Logo"
                   width={130}
                   height={52}

@@ -1,7 +1,4 @@
-'use client'
-
 import Image from 'next/image'
-import { useRef } from 'react'
 
 const items: {
   type: 'image' | 'video'
@@ -88,34 +85,8 @@ const items: {
   },
 ]
 
-const brandLogos = [
-  { src: '/logolar/Hisarhastanesilogo.webp', alt: 'Hisar Hastanesi' },
-  { src: '/logolar/adaletakademisi.webp', alt: 'Adalet Akademisi' },
-  { src: '/logolar/bplogo.webp', alt: 'BP' },
-  { src: '/logolar/cankayalogo.webp', alt: 'Çankaya' },
-  { src: '/logolar/carreefourlogo.webp', alt: 'Carrefour' },
-  { src: '/logolar/erdemlogo.webp', alt: 'Erdem Hastanesi' },
-  { src: '/logolar/gazi_univer_logo.webp', alt: 'Gazi Üniversitesi' },
-  { src: '/logolar/metrologo.webp', alt: 'Metro' },
-  { src: '/logolar/salipazari.webp', alt: 'Salı Pazarı' },
-  { src: '/logolar/totallogo.webp', alt: 'Total' },
-  { src: '/logolar/yasamlogo.webp', alt: 'Yaşam Hastanesi' },
-]
 
 export default function GallerySection() {
-  const sliderRef = useRef<HTMLDivElement>(null)
-
-  const scrollLeft = () => {
-    if (sliderRef.current) {
-      sliderRef.current.scrollBy({ left: -250, behavior: 'smooth' })
-    }
-  }
-
-  const scrollRight = () => {
-    if (sliderRef.current) {
-      sliderRef.current.scrollBy({ left: 250, behavior: 'smooth' })
-    }
-  }
 
   return (
     <section className="gallery-section section" id="galeri" aria-labelledby="galeri-title">
@@ -172,28 +143,6 @@ export default function GallerySection() {
               </div>
             </article>
           ))}
-        </div>
-
-        {/* ── BİZİMLE ÇALIŞAN MARKALAR SLIDER ── */}
-        <div className="brands-slider-wrap">
-          <div className="brands-header">
-            <h3 className="brands-title">Bizimle Çalışan Markalar</h3>
-            <div className="brands-nav">
-              <button onClick={scrollLeft} aria-label="Sola Kaydır">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M15 18l-6-6 6-6"/></svg>
-              </button>
-              <button onClick={scrollRight} aria-label="Sağa Kaydır">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M9 18l6-6-6-6"/></svg>
-              </button>
-            </div>
-          </div>
-          <div className="brands-track" ref={sliderRef}>
-            {brandLogos.map((logo, i) => (
-              <div key={i} className="brand-slide">
-                <Image src={logo.src} alt={logo.alt} fill style={{ objectFit: 'contain', padding: '24px' }} sizes="200px" />
-              </div>
-            ))}
-          </div>
         </div>
 
       </div>

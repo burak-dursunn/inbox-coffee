@@ -22,7 +22,7 @@ export default function Header() {
       <nav className="nav container">
         <Link href="/" className="nav__logo" aria-label="CoffeeVar Ana Sayfa" onClick={closeMenu}>
           <Image
-            src="/images/logo.webp"
+            src="/images/logo.svg"
             alt="CoffeeVar Logo"
             width={140}
             height={55}

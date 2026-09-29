@@ -4,39 +4,49 @@ import { useState } from 'react'
 
 const faqs = [
   {
-    label: 'ŞARTLAR',
-    q: 'Hangi Lokasyonlar Daha Uygundur?',
-    a: "AVM'ler, havalimanları, otobüs terminalleri, hastaneler, üniversite kampüsleri, ofis binaları, fabrikalar ve benzeri yüksek trafikli lokasyonlar idealdir.",
+    label: 'TEMİZLİK',
+    q: 'Makine Nasıl Temizlenir?',
+    a: 'Jetinno JL300, otomatik temizleme ve durulama sistemine sahip Vario Demleme Ünitesi ile donatılmıştır. Demleme ünitesi sökülmeden, yerinde kolayca temizlenebilir. UV dezenfeksiyon teknolojisi ve otomatik yıkama sistemi sayesinde yüksek hijyen standartları sürekli korunur.',
   },
   {
-    label: 'KİRALAMA',
-    q: 'Kiralama Modelinde İş Ortağından Neler Beklenir?',
-    a: 'Sadece 1 metrekarelik bir alan, elektrik ve su bağlantısı (veya damacana) sağlamanız yeterlidir. Tüm operasyonu biz yönetiyoruz.',
+    label: 'KAPASİTE',
+    q: 'Makinenin İçecek Kapasitesi Nedir?',
+    a: 'Jetinno JL300, tek dolumla 300 bardağa kadar üretim kapasitesi sunar. Yüksek kapasiteli hazneler sayesinde sık dolum ihtiyacı ortadan kalkar. Çekirdek kahve, yaprak çay ve filtre kahve için ayrı demleme alanları; 5 farklı toz içecek haznesi ve 4 profesyonel şurup istasyonu bulunur.',
   },
   {
-    label: 'SATIN ALMA',
-    q: 'Kahve Otomatını Satın Alabilir miyim?',
-    a: 'Evet, kiralama modelimizin yanı sıra satın alma opsiyonumuz da mevcuttur.',
+    label: 'İÇECEKLER',
+    q: 'Hangi İçecekler Hazırlanabilir?',
+    a: 'Makine; espresso, americano, latte, cappuccino gibi sıcak kahve çeşitlerinin yanı sıra soğuk kahve, milkshake, demleme yaprak çayı, sıcak çikolata, limonata ve protein shake gibi geniş bir yelpazeyi destekler.',
   },
   {
-    label: 'YATIRIMIN GERİ DÖNÜŞ SÜRESİ',
-    q: 'Kahve Otomatının Yatırım Geri Dönüşü Ne Kadar Sürer?',
-    a: 'Lokasyonun trafiğine bağlı olarak ortalama 6 ile 12 ay arasında yatırım maliyeti geri dönmektedir.',
+    label: 'SOĞUTMA',
+    q: 'Sıcak ve Soğuk İçecek Sistemi Nasıl Çalışır?',
+    a: '700 ml kapasiteli İsveç üretimi kazan (boiler), sıcak içecekler için kullanılır. Soğuk içecekler için ise ayrı bir chiller sistemi devreye girer. Basınç ve sıcaklık sensörleri sayesinde her fincanda ideal servis sıcaklığı otomatik olarak korunur.',
   },
   {
-    label: 'SERVİS',
-    q: 'Elektrik ve Su Giderleri Kime Aittir?',
-    a: 'Elektrik ve su tüketim giderleri işletmeye aittir. Makine enerji tasarruflu olup tüketimi çok düşüktür.',
+    label: 'ÖĞÜTÜCÜ',
+    q: 'Kahve Değirmeni Hakkında Neler Bilinmeli?',
+    a: 'Makine, İsviçre teknolojisine sahip yüksek hassasiyetli bir kahve değirmenine sahiptir. Öğütme inceliği 125 ile 850 mikron arasında ihtiyaca göre ayarlanabilir. Bu sayede her çekirdek eşit şekilde öğütülerek mükemmel aroma elde edilir.',
   },
   {
-    label: 'GARANTİ',
-    q: 'Kahve Otomatı Garanti Kapsamında mı?',
-    a: 'Evet, tüm makinelerimiz 2 yıl tam kapsamlı garanti altındadır.',
+    label: 'MİKSER',
+    q: 'Mikser Sistemi Nasıl Çalışır?',
+    a: 'Dakikada 20.000 devire kadar ulaşabilen ayarlanabilir yüksek hızlı mikser sistemi, süt bazlı içeceklerde yoğun ve pürüzsüz köpük elde edilmesini sağlar. Mikser hızı, içeceğin türüne göre otomatik olarak optimize edilir.',
   },
   {
-    label: 'ÖDEME SİSTEMLERİ',
-    q: 'Müşteriler Ödemelerini Nasıl Yapabilir?',
-    a: 'Kredi kartı, banka kartı, mobil ödeme ve NFC ile temassız ödeme seçenekleri mevcuttur. Nakit ödeme opsiyoneldir.',
+    label: 'HİJYEN',
+    q: 'Hijyen Güvenliği Nasıl Sağlanır?',
+    a: 'Makine hermetik olarak kapanan bir sisteme sahiptir; bu sayede dış etkenlerden yalıtılmış hijyenik bir ortam oluşturulur. UV dezenfeksiyon teknolojisi, sineklik koruması ve otomatik yıkama sistemi bir arada çalışarak yüksek hijyen standartlarını sürekli aktif tutar.',
+  },
+  {
+    label: 'UZAKTAN YÖNETİM',
+    q: 'Makine Uzaktan Yönetilebilir mi?',
+    a: 'Evet. Online telemetri sistemi sayesinde internet bağlantısı üzerinden makineye uzaktan erişim sağlanabilir. Tarifler, makine ayarları, kullanıcı arayüzü, reklam içerikleri, kampanyalar ve yazılım güncellemeleri tek bir panel üzerinden kolayca yönetilebilir.',
+  },
+  {
+    label: 'KULLANIM',
+    q: 'Makineyi Kullanmak İçin Teknik Bilgi Gerekli mi?',
+    a: 'Hayır. Jetinno JL300, sezgisel dokunmatik ekran arayüzüyle tasarlanmıştır; teknik bilgiye ihtiyaç duymadan kolayca kullanılabilir. Kredi kartı, banka kartı, mobil ödeme ve NFC temassız ödeme seçenekleri standart olarak mevcuttur.',
   },
 ]
 
