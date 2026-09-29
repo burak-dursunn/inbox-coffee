@@ -2748,7 +2748,7 @@ select {
 .fv-eyebrow {
   display: inline-block;
   font-family: var(--font-body);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.18em;
@@ -2771,7 +2771,7 @@ select {
 
 .fv-title {
   font-family: var(--font-display);
-  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  font-size: clamp(2.1rem, 3.2vw, 3.2rem);
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -2787,8 +2787,8 @@ select {
 }
 
 .fv-lead {
-  font-size: clamp(0.88rem, 1.1vw, 1rem);
-  color: rgba(253, 243, 227, 0.6);
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  color: rgba(253, 243, 227, 0.65);
   line-height: 1.55;
 }
 
@@ -2850,7 +2850,7 @@ select {
 
 .fv-item__title {
   font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--color-cream);
   letter-spacing: -0.01em;
@@ -2859,8 +2859,8 @@ select {
 }
 
 .fv-item__desc {
-  font-size: 0.78rem;
-  color: rgba(253, 243, 227, 0.5);
+  font-size: 0.85rem;
+  color: rgba(253, 243, 227, 0.55);
   line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
