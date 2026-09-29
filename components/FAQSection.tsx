@@ -45,7 +45,7 @@ export default function FAQSection() {
 
   return (
     <section className="section section--cream" id="faq" aria-labelledby="faq-title">
-      <div className="container" style={{maxWidth: 1400}}>
+      <div className="container">
         
         <div className="faq-header-modern">
           <h2 className="section__title" id="faq-title">

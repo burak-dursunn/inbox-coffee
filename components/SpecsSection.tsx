@@ -34,7 +34,7 @@ const specs = [
 export default function SpecsSection() {
   return (
     <section className="section section--light" id="ozellikler" aria-labelledby="ozellikler-title">
-      <div className="container" style={{ maxWidth: 1200, marginInline: 'auto' }}>
+      <div className="container" style={{ marginInline: 'auto', paddingInline: 'clamp(16px, 2vw, 32px)' }}>
         <div className="specs-header">
           <div>
             <h2 className="section__title" id="ozellikler-title">

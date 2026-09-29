@@ -119,7 +119,7 @@ export default function GallerySection() {
 
   return (
     <section className="gallery-section section" id="galeri" aria-labelledby="galeri-title">
-      <div className="container" style={{ maxWidth: 1360 }}>
+      <div className="container">
 
         {/* Başlık */}
         <div className="gallery-top">

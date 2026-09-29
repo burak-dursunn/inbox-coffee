@@ -31,7 +31,7 @@ const steps = [
 export default function ProcessSection() {
   return (
     <section className="section section--dark" id="kurulum" aria-labelledby="kurulum-title">
-      <div className="container" style={{maxWidth: 1400}}>
+      <div className="container">
         <div className="process-header">
           <div>
             <h2 className="section__title section__title--light" id="kurulum-title">

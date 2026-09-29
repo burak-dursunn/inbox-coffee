@@ -35,6 +35,24 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        source: '/scroll-anmiaton/:file*.webm',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/scroll-anmiaton/:file*.mp4',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
     ]
   },
 }

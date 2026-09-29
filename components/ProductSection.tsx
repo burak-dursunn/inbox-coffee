@@ -5,27 +5,27 @@ import Image from 'next/image'
 
 const slides = [
   {
-    src: '/ürün-görselleri/jetinno-tech-mixers.webp',
+    src: '/özellikler/özellik-resmi-1.jpg',
     alt: 'Jetinno Yüksek Hızlı Mikser',
     caption: 'Yüksek Hızlı Mikser Teknolojisi – Dakikada 20.000 devire kadar ulaşabilen mikser',
   },
   {
-    src: '/ürün-görselleri/jetinno-tech-brewer.webp',
+    src: '/özellikler/özellik-resmi-2.jpg',
     alt: 'Jetinno Espresso Brewer',
     caption: 'Yüksek Basınçlı Espresso Brewer – Her fincanda mükemmel aroma ve krema',
   },
   {
-    src: '/ürün-görselleri/jetinno-tech-grinder.webp',
+    src: '/özellikler/özellik-resmi-3.jpg',
     alt: 'Jetinno Hassas Öğütücü',
     caption: 'Hassas Öğütücü – Tutarlı ve taze öğütme teknolojisi',
   },
   {
-    src: '/ürün-görselleri/jetinno-tech-hydraulic.webp',
+    src: '/özellikler/özellik-resmi-4.jpg',
     alt: 'Jetinno Hidrolik Sistem',
     caption: 'Gelişmiş Hidrolik Sistem – Kesintisiz ve güvenilir akış kontrolü',
   },
   {
-    src: '/ürün-görselleri/jetinno-tech-telemetry.webp',
+    src: '/özellikler/özellik-resmi-5.jpg',
     alt: 'Jetinno Uzaktan Yönetim',
     caption: 'Uzaktan Telemetri – Gerçek zamanlı takip ve merkezi yönetim',
   },
@@ -33,32 +33,31 @@ const slides = [
 
 const features = [
   {
-    title: '20+ Yıllık Sektör Deneyimi',
-    desc: 'Uzun yıllara dayanan bilgi birikimi ve tecrübesiyle Jetinno, yüksek kaliteli kahve otomatları geliştirerek sektörün lider markası olmuştur.',
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <rect x="3" y="3" width="18" height="18" rx="3"/>
-        <path d="M9 3v18M3 9h6"/>
-      </svg>
-    ),
-  },
-  {
     title: '200\'den Fazla Patent',
     desc: 'Jetinno\'nun yenilikçi teknolojileri, her fincanda üstün kahve lezzeti ve her zaman aynı yüksek kaliteyi sunar.',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <circle cx="12" cy="12" r="9"/>
-        <path d="M12 6v6l4 2"/>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 6v6l4 2" />
       </svg>
     ),
   },
   {
-    title: '110\'dan Fazla Ülkede Tercih Ediliyor',
-    desc: 'Jetinno, güvenilirliği ve üstün performansıyla dünyanın dört bir yanında milyonlarca kahve severin ve işletmenin tercih ettiği global bir markadır.',
+    title: 'Kaliteli Kahve Çekirdekleri',
+    desc: 'Özenle seçilmiş kaliteli kahve çekirdekleriyle, her fincanda taze ve aromatik kahve deneyimi.',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <circle cx="12" cy="12" r="9"/>
-        <path d="M2 12h4m12 0h4M12 2v4m0 12v4"/>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Sıcak & Soğuk İçecek Seçenekleri',
+    desc: 'Sıcak kahvelerden ferahlatıcı soğuk içeceklere kadar farklı damak zevklerine uygun seçenekler.',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z" />
       </svg>
     ),
   },
@@ -78,7 +77,7 @@ export default function ProductSection() {
 
   return (
     <section className="section section--gold" id="urun" aria-labelledby="urun-title">
-      <div className="container" style={{maxWidth: 1400}}>
+      <div className="container">
         <div className="section__header text-center">
           <h2 className="section__title" id="urun-title">
             Jetinno'yu Kahve Otomatı<br />
@@ -104,11 +103,10 @@ export default function ProductSection() {
                   src={slide.src}
                   alt={slide.alt}
                   fill
-                  style={{ objectFit: 'cover', objectPosition: 'center' }}
+                  style={{ objectFit: 'contain', objectPosition: 'center' }}
                   sizes="(max-width: 1100px) 100vw, 55vw"
                   loading={i === 0 ? 'eager' : 'lazy'}
                 />
-                <p className="slide__caption">{slide.caption}</p>
               </div>
             ))}
             <button

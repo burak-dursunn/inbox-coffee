@@ -6,7 +6,7 @@ import { useState, useEffect, useCallback } from 'react'
 const checks = [
   'Yalnızca seçkin üreticilerden temin edilen çekirdek kahve kullanılır.',
   'Tüm hammaddeler kalite ve gıda güvenliği sertifikalarına sahiptir.',
-  'Şuruplar CoffeeVar\'a özel reçetelerle geliştirilmiştir.',
+  'Şuruplar özel reçetelerle geliştirilmiştir.',
   'Doğal iri yapraklı siyah çay ile gerçek çay lezzeti sunulur.',
 ]
 

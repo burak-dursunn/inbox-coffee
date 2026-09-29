@@ -1,6 +1,7 @@
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import Marquee from '@/components/Marquee'
+import FeaturesVideoSection from '@/components/FeaturesVideoSection'
 import ProductSection from '@/components/ProductSection'
 import BeveragesSection from '@/components/BeveragesSection'
 import SpecsSection from '@/components/SpecsSection'
@@ -19,6 +20,7 @@ export default function Home() {
       <main>
         <Hero />
         <Marquee />
+        <FeaturesVideoSection />
         <ProductSection />
         <BeveragesSection />
         <SpecsSection />
