@@ -61,19 +61,15 @@ export default function Footer() {
               <div className="footer__contact">
                 <div className="footer__contact-item">
                   <PhoneIcon />
-                  <span className="footer__contact-empty"></span>
+                  <span>+90 537 949 83 61</span>
                 </div>
                 <div className="footer__contact-item">
                   <WASmIcon />
-                  <span className="footer__contact-empty"></span>
-                </div>
-                <div className="footer__contact-item">
-                  <MailIcon />
-                  <span className="footer__contact-empty"></span>
+                  <a href="https://wa.me/905379498361" target="_blank" rel="noopener noreferrer">WhatsApp&apos;tan yazın</a>
                 </div>
                 <div className="footer__contact-item footer__contact-item--address">
                   <MapIcon />
-                  <span className="footer__contact-empty"></span>
+                  <span>Yuvacık Yakacık Mahallesi Çevik Sokak F Blok No : 17/6<br />Başiskele / Kocaeli</span>
                 </div>
               </div>
             </div>
@@ -127,7 +123,7 @@ export default function Footer() {
 
       {/* WhatsApp Floating Button */}
       <a
-        href="https://wa.me/"
+        href="https://wa.me/905379498361"
         className="whatsapp-float"
         target="_blank"
         rel="noopener noreferrer"

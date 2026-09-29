@@ -47,17 +47,17 @@ export default function ContactSection() {
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.42a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/>
                 </svg>
-                <span>İletişim bilgileri yakında eklenecek</span>
+                <span>+90 537 949 83 61</span>
               </div>
               <div className="contact-detail">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2z"/>
-                  <path d="M22 6l-10 7L2 6"/>
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                  <circle cx="12" cy="10" r="3" />
                 </svg>
-                <span>E-posta bilgisi yakında eklenecek</span>
+                <span>Yuvacık Yakacık Mahallesi Çevik Sokak F Blok No : 17/6 Başiskele / Kocaeli</span>
               </div>
             </div>
-            <a href="https://wa.me/" className="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/905379498361" className="whatsapp-btn" target="_blank" rel="noopener noreferrer">
               <WhatsAppIcon /> WhatsApp&apos;tan Yazın
             </a>
           </div>

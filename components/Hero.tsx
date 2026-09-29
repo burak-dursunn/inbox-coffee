@@ -7,9 +7,9 @@ export default function Hero() {
         <div className="hero__main">
           <div className="hero__text">
             <h1 className="hero__title">
-              Anahtar teslim <em>kahve işi</em> —
+              İşletmenizin ihtiyacı kahve makinenizi
               <br />
-              <em>72 saatte</em> hazır
+              <em>72 saatte</em> yerinde teslim ediyoruz
             </h1>
             <p className="hero__subtitle">
               Lokasyonunuz için CoffeeVar'ın özel konfigürasyonunda
