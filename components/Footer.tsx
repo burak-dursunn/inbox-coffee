@@ -64,6 +64,10 @@ export default function Footer() {
                   <span>+90 537 949 83 61</span>
                 </div>
                 <div className="footer__contact-item">
+                  <MailIcon />
+                  <a href="mailto:info@inboxotomat.com">info@inboxotomat.com</a>
+                </div>
+                <div className="footer__contact-item">
                   <WASmIcon />
                   <a href="https://wa.me/905379498361" target="_blank" rel="noopener noreferrer">WhatsApp&apos;tan yazın</a>
                 </div>
