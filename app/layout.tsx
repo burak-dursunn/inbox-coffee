@@ -17,16 +17,16 @@ const cormorant = Cormorant_Garamond({
   display: 'swap',
 })
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://coffeevar.com.tr'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.inboxotomat.com'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'CoffeeVar – Kahve Otomatı Çözümleri | Jetinno JL300',
-    template: '%s | CoffeeVar',
+    default: 'Inbox Otomat – Kahve Otomatı Hizmetleri | Jetinno JL300',
+    template: '%s | Inbox Otomat',
   },
   description:
-    'CoffeeVar, Jetinno JL300 tam otomatik kahve makinesiyle 72 saatte anahtar teslim kurulum sunar. Türkiye genelinde 7/24 operatörsüz kahve satışı.',
+    'Inbox Otomat, Jetinno JL300 tam otomatik kahve makinesiyle 72 saatte anahtar teslim kurulum sunar. Türkiye genelinde 7/24 operatörsüz kahve satışı çözümleri.',
   keywords: [
     'kahve otomatı',
     'vending machine',
@@ -37,10 +37,14 @@ export const metadata: Metadata = {
     'anahtar teslim kahve',
     '72 saatte kurulum',
     'kafeterya makinesi',
+    'inbox otomat',
+    'otomat hizmetleri',
+    'kahve otomatı kiralama',
+    'inboxotomat',
   ],
-  authors: [{ name: 'CoffeeVar' }],
-  creator: 'CoffeeVar',
-  publisher: 'CoffeeVar',
+  authors: [{ name: 'Inbox Otomat', url: siteUrl }],
+  creator: 'Inbox Otomat',
+  publisher: 'Inbox Otomat',
   alternates: {
     canonical: '/',
     languages: { 'tr-TR': '/' },
@@ -49,23 +53,23 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'tr_TR',
     url: siteUrl,
-    siteName: 'CoffeeVar',
-    title: 'CoffeeVar – Kahve Otomatı Çözümleri | Jetinno JL300',
+    siteName: 'Inbox Otomat',
+    title: 'Inbox Otomat – Kahve Otomatı Hizmetleri | Jetinno JL300',
     description:
-      '72 saatte anahtar teslim kahve otomatı kurulumu. Türkiye\'nin her bölgesinde hizmet.',
+      '72 saatte anahtar teslim kahve otomatı kurulumu. Türkiye\'nin her bölgesinde 7/24 operatörsüz hizmet.',
     images: [
       {
         url: '/images/og-image.webp',
         width: 1200,
         height: 630,
-        alt: 'CoffeeVar Kahve Otomatı',
+        alt: 'Inbox Otomat Kahve Otomatı Hizmetleri',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CoffeeVar – Kahve Otomatı Çözümleri',
-    description: '72 saatte anahtar teslim kahve otomatı kurulumu.',
+    title: 'Inbox Otomat – Kahve Otomatı Hizmetleri',
+    description: '72 saatte anahtar teslim kahve otomatı kurulumu. 7/24 operatörsüz hizmet.',
     images: ['/images/og-image.webp'],
   },
   robots: {
@@ -80,7 +84,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // google: 'your-google-verification-code',
+    // google: 'your-google-verification-code', // Google Search Console doğrulama kodu buraya
   },
 }
 
@@ -99,24 +103,27 @@ export default function RootLayout({
     <html lang="tr" className={`${jakartaSans.variable} ${cormorant.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="canonical" href={siteUrl} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Organization',
-              name: 'CoffeeVar',
+              name: 'Inbox Otomat',
               url: siteUrl,
-              logo: `${siteUrl}/images/logo.webp`,
+              logo: `${siteUrl}/images/inbox-logo.svg`,
               description:
-                'CoffeeVar, Jetinno JL300 kahve otomatıyla 72 saatte kurulum garantisi sunan tam otomatik kahve çözümleri sağlayıcısıdır.',
+                'Inbox Otomat, Jetinno JL300 kahve otomatıyla 72 saatte kurulum garantisi sunan tam otomatik kahve çözümleri sağlayıcısıdır.',
               contactPoint: {
                 '@type': 'ContactPoint',
                 contactType: 'customer support',
                 availableLanguage: 'Turkish',
               },
               areaServed: 'TR',
-              sameAs: [],
+              sameAs: [
+                'https://www.inboxotomat.com',
+              ],
             }),
           }}
         />
@@ -135,6 +142,24 @@ export default function RootLayout({
                 availability: 'https://schema.org/InStock',
                 areaServed: 'TR',
               },
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'LocalBusiness',
+              name: 'Inbox Otomat',
+              url: siteUrl,
+              image: `${siteUrl}/images/og-image.webp`,
+              description: 'Türkiye genelinde 7/24 operatörsüz kahve otomatı kurulum ve kiralama hizmetleri.',
+              areaServed: {
+                '@type': 'Country',
+                name: 'Turkey',
+              },
+              knowsLanguage: 'tr',
             }),
           }}
         />
