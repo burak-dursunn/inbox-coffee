@@ -20,24 +20,25 @@ export default function Header() {
   return (
     <header className={`header${scrolled ? ' scrolled' : ''}`} id="header">
       <nav className="nav container">
-        <Link href="/" className="nav__logo" aria-label="CoffeeVar Ana Sayfa" onClick={closeMenu}>
+        <Link href="/" className="nav__logo" aria-label="Inbox Otomat Ana Sayfa" onClick={closeMenu} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
           <Image
-            src="/images/logo.svg"
-            alt="CoffeeVar Logo"
-            width={140}
-            height={55}
+            src="/images/inbox-logo.svg"
+            alt="Inbox Logo"
+            width={180}
+            height={70}
             priority
-            style={{ height: '44px', width: 'auto' }}
+            style={{ height: '56px', width: 'auto' }}
           />
+          <span style={{ fontWeight: 'bold', fontSize: '18px', lineHeight: 1, color: 'var(--text-color, #333)' }}>Otomat Hizmetleri</span>
         </Link>
 
         <ul className={`nav__links${menuOpen ? ' open' : ''}`} id="navLinks">
           {[
-            { href: '#teknoloji',  label: 'Ürün' },
+            { href: '#teknoloji', label: 'Ürün' },
             { href: '#ozellikler', label: 'Özellikler' },
-            { href: '#icecekler',  label: 'İçecekler' },
-            { href: '#galeri',     label: 'Galeri' },
-            { href: '#faq',        label: 'SSS' },
+            { href: '#icecekler', label: 'İçecekler' },
+            { href: '#galeri', label: 'Galeri' },
+            { href: '#faq', label: 'SSS' },
           ].map(({ href, label }) => (
             <li key={href}>
               <a href={href} className="nav__link" onClick={closeMenu}>{label}</a>
